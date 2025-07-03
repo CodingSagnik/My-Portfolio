@@ -34,7 +34,6 @@ A stunning, responsive portfolio website built with Next.js 14, featuring dynami
 - **Tailwind CSS**: Custom configuration with utility classes and animations
 - **Framer Motion**: Smooth animations and transitions
 - **Three.js Integration**: 3D globe and interactive elements
-- **Sentry Monitoring**: Error tracking and performance monitoring
 - **Responsive Images**: Optimized loading and display
 
 ## 🛠️ Tech Stack
@@ -66,7 +65,6 @@ A stunning, responsive portfolio website built with Next.js 14, featuring dynami
 - **Tailwind Merge** - Utility for merging Tailwind classes
 
 ### Monitoring & Analytics
-- **Sentry** - Error monitoring and performance tracking
 - **Vercel Analytics** - Website performance insights
 
 ## 🚀 Getting Started
@@ -95,25 +93,23 @@ A stunning, responsive portfolio website built with Next.js 14, featuring dynami
    bun install
    ```
 
-3. **Set up environment variables**
-   Create a `.env.local` file in the root directory:
+3. **Set up environment variables** (if needed)
+   Create a `.env.local` file in the root directory for any future environment variables:
    ```env
-   # Sentry Configuration (optional)
-   SENTRY_ORG=your-sentry-org
-   SENTRY_PROJECT=your-project-name
-   SENTRY_AUTH_TOKEN=your-auth-token
+   # Add your environment variables here
+   # NEXT_PUBLIC_API_URL=your-api-url
    ```
 
 4. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
-   ```
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
@@ -210,8 +206,7 @@ portfolio/
    - Configure project settings
 
 2. **Environment Variables**
-   - Add any required environment variables
-   - Configure Sentry tokens if using monitoring
+   - Add any required environment variables if needed
 
 3. **Deploy**
    - Vercel automatically deploys on push to main branch
@@ -263,7 +258,7 @@ npm run lint
 ### Debugging
 - **React Developer Tools**: Component inspection
 - **Next.js DevTools**: Performance and bundle analysis
-- **Sentry**: Production error monitoring
+- **Browser DevTools**: Built-in debugging capabilities
 
 ## 🤝 Contributing
 

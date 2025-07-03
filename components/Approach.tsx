@@ -46,56 +46,56 @@ const Approach = () => {
            * Emerald theme with moderate animation speed
            * Focuses on strategic thinking and system design
            */}
-          <Card 
+        <Card 
               title="Planning & Architecture" 
-              icon={<AceternityIcon order="Phase 1"/>}
+            icon={<AceternityIcon order="Phase 1"/>}
               description="I begin by breaking down the problem, identifying key features, and outlining the structure. I cover everything from database models to user flow. This is where logic meets vision."
-              >
-            <CanvasRevealEffect
-              animationSpeed={5.1}
-              containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
-            />
-          </Card>
+            >
+          <CanvasRevealEffect
+            animationSpeed={5.1}
+            containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
+          />
+        </Card>
           
           {/* 
            * Phase 2: Code, Iterate, Repeat
            * Pink theme with faster animation and custom colors
            * Represents the implementation and refinement cycles
            */}
-          <Card 
+        <Card 
               title="Code, Iterate, Repeat" 
-              icon={<AceternityIcon order="Phase 2"/>}
+            icon={<AceternityIcon order="Phase 2"/>}
               description="With a clear roadmap, I jump into the build phase. Whether it's backend logic or frontend components, I iterate fast, debug smart, and polish until it clicks."
-              >
-            <CanvasRevealEffect
-              animationSpeed={3}
-              containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
-              colors={[
-                [255, 166, 158],
-                [221, 255, 247],
-              ]}
-              dotSize={2.5}
-            />
-          </Card>
+            >
+          <CanvasRevealEffect
+            animationSpeed={3}
+            containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
+            colors={[
+              [255, 166, 158],
+              [221, 255, 247],
+            ]}
+            dotSize={2.5}
+          />
+        </Card>
           
           {/* 
            * Phase 3: Test & Launch
            * Sky blue theme with larger dots and custom color
            * Represents quality assurance and deployment phase
            */}
-          <Card 
+        <Card 
               title="Test & Launch" 
-              icon={<AceternityIcon order="Phase 3"/>}
+            icon={<AceternityIcon order="Phase 3"/>}
               description="After thorough testing and performance adjustments, it's time to ship. I ensure every part works as it should, being smooth, responsive, and ready for production."
-              >
-            <CanvasRevealEffect
-              animationSpeed={3}
-              containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
-              colors={[[125, 211, 252]]}
-              dotSize={3.8}
-            />
-          </Card>
-        </div>
+            >
+          <CanvasRevealEffect
+            animationSpeed={3}
+            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
+            colors={[[125, 211, 252]]}
+            dotSize={3.8}
+          />
+        </Card>
+      </div>
     </section>
   );
 }

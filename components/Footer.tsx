@@ -50,15 +50,15 @@ const Footer = () => {
        * Centers all content for optimal visual hierarchy
        */}
       <div className="relative z-10">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
           {/* 
            * Contact Heading
            * Engaging call-to-action with purple accent words
            * Responsive width constraint for optimal readability
            */}
-          <h1 className="heading lg:max-w-[45vw]">
+        <h1 className="heading lg:max-w-[45vw]">
             Got a <span className="text-purple">cool</span> idea or something <span className="text-purple">exciting</span> in mind?
-          </h1>
+        </h1>
           
           {/* 
            * Contact Description
@@ -75,48 +75,48 @@ const Footer = () => {
            * Envelope icon for clear visual communication
            */}
           <a href="mailto:raysagnik@gmail.com">
-            <MagicButton
-              title="Let's get in touch"
-              icon={<FaEnvelope />}
-              position="right"
-            />
-          </a>
-        </div>
+          <MagicButton
+            title="Let's get in touch"
+            icon={<FaEnvelope />}
+            position="right"
+          />
+        </a>
+      </div>
         
         {/* 
          * Bottom Section Container
          * Flexbox layout that adapts orientation based on screen size
          * Balanced distribution of copyright and social links
          */}
-        <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
+      <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
           {/* 
            * Copyright/Attribution Text
            * Personal branding with heart emoji for warmth
            * Responsive typography for different screen sizes
            */}
-          <p className="md:text-base text-sm md:font-normal font-light">
+        <p className="md:text-base text-sm md:font-normal font-light">
             Made with ❤️ by Sagnik Ray
-          </p>
+        </p>
 
           {/* 
            * Social Media Links Container
            * Responsive gap spacing for optimal touch targets
            * Maps over socialMedia data for maintainability
            */}
-          <div className="flex items-center md:gap-3 gap-6">
-            {socialMedia.map((info) => (
+        <div className="flex items-center md:gap-3 gap-6">
+          {socialMedia.map((info) => (
               <a
-                key={info.id}
+              key={info.id}
                 href={info.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300 hover:bg-opacity-90 transition-all duration-300"
-              >
+            >
                 {/* Social media platform icon with consistent sizing */}
-                <img src={info.img} alt="icons" width={20} height={20} />
+              <img src={info.img} alt="icons" width={20} height={20} />
               </a>
             ))}
-          </div>
+            </div>
         </div>
       </div>
     </footer>
