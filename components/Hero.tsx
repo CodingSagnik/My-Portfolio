@@ -15,6 +15,7 @@ import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import MagicButton from './ui/MagicButton'
 import TypewriterName from './ui/TypewriterName'
 import { FaLocationArrow } from 'react-icons/fa'
+import Link from 'next/link'
 
 /**
  * Hero Component
@@ -87,26 +88,18 @@ const hero = () => {
              * Features a multi-language animated name component
              * Responsive text sizing and spacing
              */}
-            <p className='text-center md:tracking-wider md:mt-4 text-sm md:text-lg lg:text-2xl'>
-              Hi, I'm <TypewriterName className="text-purple" /> I build experiences that feel as good as they look
-            </p>
-
-            {/* 
-             * Call-to-Action Button
-             * Links to GitHub profile with proper security attributes
-             * Uses custom MagicButton component with hover effects
-             */}
-            <a 
-              href="https://github.com/CodingSagnik"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="https://github.com/CodingSagnik" target="_blank" rel="noopener noreferrer">
               <MagicButton 
                 title="Show my work"
                 icon={<FaLocationArrow />}
                 position="right"
               />
-            </a>
+            </Link>
+
+            {/* Professional Introduction */}
+            <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+              Hi! I&apos;m <TypewriterName />
+            </p>
           </div>
         </div>     
     </div>

@@ -1,40 +1,119 @@
-import * as Sentry from '@sentry/nextjs';
+/**
+ * Root Layout Component for Portfolio Website
+ * 
+ * This is the main layout component that wraps all pages in the application.
+ * It provides global styles, metadata, and the theme provider for the entire site.
+ * 
+ * Key Features:
+ * - Next.js 14 App Router layout
+ * - Global CSS styles and font loading
+ * - Comprehensive SEO metadata with Open Graph and Twitter Cards
+ * - Favicon configuration for multiple formats and devices
+ * - Theme provider setup for consistent styling
+ * - Viewport and accessibility optimizations
+ */
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
+// Load Inter font with Latin subset for optimal performance
 const inter = Inter({ subsets: ["latin"] });
 
+/**
+ * Comprehensive metadata configuration for SEO and social sharing
+ * 
+ * This metadata ensures proper indexing by search engines and
+ * attractive previews when shared on social media platforms.
+ */
 export const metadata: Metadata = {
+  // Basic metadata
   title: "Sagnik's Portfolio",
-  description: "Modern & Minimalist JS Mastery Portfolio",
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-    other: [
+  description: "Modern & Minimalist JS Mastery Portfolio - Showcasing cutting-edge web development skills with Next.js, React, and advanced animations",
+  
+  // Enhanced metadata for better SEO
+  keywords: ["portfolio", "web developer", "Next.js", "React", "TypeScript", "Full Stack Developer", "JavaScript", "Modern Web Development"],
+  authors: [{ name: "Sagnik Ray" }],
+  creator: "Sagnik Ray",
+  publisher: "Sagnik Ray",
+  
+  // Open Graph metadata for social media sharing
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://sagnik-portfolio.vercel.app", // Update with actual domain
+    title: "Sagnik's Portfolio - Modern Web Developer",
+    description: "Explore my portfolio showcasing modern web development projects built with Next.js, React, and cutting-edge technologies",
+    siteName: "Sagnik's Portfolio",
+    images: [
       {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        url: '/favicon-32x32.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        url: '/favicon-16x16.png',
+        url: "/og-image.png", // Add this image to your public folder
+        width: 1200,
+        height: 630,
+        alt: "Sagnik's Portfolio - Modern Web Developer",
       },
     ],
   },
-  manifest: '/site.webmanifest',
-  other: {
-    "sentry-trace": "{{sentry-trace}}",
-    "baggage": "{{baggage}}",
+  
+  // Twitter Card metadata
+  twitter: {
+    card: "summary_large_image",
+    title: "Sagnik's Portfolio - Modern Web Developer",
+    description: "Explore my portfolio showcasing modern web development projects",
+    creator: "@your_twitter_handle", // Update with actual Twitter handle
+    images: ["/og-image.png"],
   },
+  
+  // Favicon configuration for multiple formats and devices
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+    ],
+  },
+  
+  // Web app manifest for PWA features
+  manifest: "/site.webmanifest",
+  
+  // Additional metadata
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  
+  // Verification for search engines (add when you have them)
+  // verification: {
+  //   google: "your-google-verification-code",
+  //   yandex: "your-yandex-verification-code",
+  // },
 };
 
+/**
+ * Root Layout Component
+ * 
+ * Provides the base HTML structure and theme provider for all pages.
+ * The layout includes proper language settings, responsive viewport,
+ * and the theme provider for consistent styling across the application.
+ * 
+ * @param children - The page content to be rendered within the layout
+ */
 export default function RootLayout({
   children,
 }: {
@@ -42,225 +121,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Simplified Sentry styling with proper error handling
-              function applySentryStyles() {
-                try {
-                  // Remove existing styles to prevent duplicates
-                  const existingStyle = document.getElementById('sentry-custom-styles');
-                  if (existingStyle) existingStyle.remove();
-                  
-                  const style = document.createElement('style');
-                  style.id = 'sentry-custom-styles';
-                  style.innerHTML = \`
-                    /* Sentry Input Styling */
-                    div[role="dialog"] input,
-                    div[aria-modal="true"] input,
-                    form input,
-                    [class*="feedback"] input,
-                    div[role="dialog"] textarea,
-                    div[aria-modal="true"] textarea,
-                    form textarea,
-                    [class*="feedback"] textarea {
-                      background: rgba(6, 9, 31, 0.6) !important;
-                      border: 3px solid #CBACF9 !important;
-                      border-radius: 8px !important;
-                      color: #ffffff !important;
-                      padding: 12px 16px !important;
-                      box-shadow: inset 0 0 0 3px #CBACF9, 0 0 0 3px #CBACF9 !important;
-                    }
-                    
-                    /* Sentry Button and Link Styling */
-                    div[role="dialog"] button:not([type="submit"]),
-                    div[aria-modal="true"] button:not([type="submit"]),
-                    form button:not([type="submit"]),
-                    [class*="feedback"] button:not([type="submit"]),
-                    div[role="dialog"] a,
-                    div[aria-modal="true"] a,
-                    form a,
-                    [class*="feedback"] a {
-                      background: transparent !important;
-                      border: 2px solid #CBACF9 !important;
-                      color: #CBACF9 !important;
-                      padding: 8px 12px !important;
-                      border-radius: 6px !important;
-                      text-decoration: none !important;
-                    }
-                    
-                    /* All text color */
-                    div[role="dialog"] *,
-                    div[aria-modal="true"] *,
-                    form *,
-                    [class*="feedback"] * {
-                      color: #CBACF9 !important;
-                    }
-                  \`;
-                  
-                  document.head.appendChild(style);
-                  
-                  // Direct style application with error handling
-                  setTimeout(() => {
-                    try {
-                      // Style inputs directly
-                      const inputs = document.querySelectorAll('div[role="dialog"] input, div[aria-modal="true"] input, form input, [class*="feedback"] input, div[role="dialog"] textarea, div[aria-modal="true"] textarea, form textarea, [class*="feedback"] textarea');
-                      inputs.forEach(input => {
-                        try {
-                          input.style.setProperty('background', 'rgba(6, 9, 31, 0.6)', 'important');
-                          input.style.setProperty('border', '3px solid #CBACF9', 'important');
-                          input.style.setProperty('border-radius', '8px', 'important');
-                          input.style.setProperty('color', '#ffffff', 'important');
-                          input.style.setProperty('box-shadow', 'inset 0 0 0 3px #CBACF9, 0 0 0 3px #CBACF9', 'important');
-                        } catch (e) {
-                          // Silently handle styling errors
-                        }
-                      });
-                      
-                      // Style buttons and links
-                      const buttons = document.querySelectorAll('div[role="dialog"] button:not([type="submit"]), div[aria-modal="true"] button:not([type="submit"]), form button:not([type="submit"]), [class*="feedback"] button:not([type="submit"]), div[role="dialog"] a, div[aria-modal="true"] a, form a, [class*="feedback"] a');
-                      buttons.forEach(button => {
-                        try {
-                          button.style.setProperty('background', 'transparent', 'important');
-                          button.style.setProperty('border', '2px solid #CBACF9', 'important');
-                          button.style.setProperty('color', '#CBACF9', 'important');
-                          button.style.setProperty('border-radius', '6px', 'important');
-                          button.style.setProperty('padding', '8px 12px', 'important');
-                        } catch (e) {
-                          // Silently handle styling errors
-                        }
-                      });
-                      
-                      // Style all text
-                      const allText = document.querySelectorAll('div[role="dialog"] *, div[aria-modal="true"] *, form *, [class*="feedback"] *');
-                      allText.forEach(el => {
-                        try {
-                          if (el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && el.tagName !== 'BUTTON') {
-                            el.style.setProperty('color', '#CBACF9', 'important');
-                          }
-                        } catch (e) {
-                          // Silently handle styling errors
-                        }
-                      });
-                    } catch (e) {
-                      // Silently handle direct styling errors
-                    }
-                  }, 200);
-                } catch (e) {
-                  // Silently handle main function errors
-                }
-              }
-              
-              // Safe initialization function
-              function initializeSentryStyles() {
-                // Apply styles when DOM is ready
-                if (document.readyState === 'loading') {
-                  document.addEventListener('DOMContentLoaded', () => {
-                    applySentryStyles();
-                    setupMonitoring();
-                  });
-                } else {
-                  applySentryStyles();
-                  setupMonitoring();
-                }
-              }
-              
-              // Setup monitoring only after DOM is ready
-              function setupMonitoring() {
-                try {
-                  // Monitor for Sentry elements with error handling
-                  let styleInterval;
-                  const startMonitoring = () => {
-                    try {
-                      if (styleInterval) clearInterval(styleInterval);
-                      styleInterval = setInterval(() => {
-                        try {
-                          const sentryElements = document.querySelectorAll('div[role="dialog"], div[aria-modal="true"], [class*="feedback"]');
-                          if (sentryElements.length > 0) {
-                            applySentryStyles();
-                          }
-                        } catch (e) {
-                          // Silently handle monitoring errors
-                        }
-                      }, 1000);
-                    } catch (e) {
-                      // Silently handle monitoring setup errors
-                    }
-                  };
-                  
-                  startMonitoring();
-                  
-                  // MutationObserver with proper DOM checking
-                  if (document.body && typeof MutationObserver !== 'undefined') {
-                    try {
-                      const observer = new MutationObserver((mutations) => {
-                        try {
-                          let shouldApply = false;
-                          mutations.forEach(mutation => {
-                            if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-                              mutation.addedNodes.forEach(node => {
-                                if (node.nodeType === 1) {
-                                  const element = node;
-                                  if (element.getAttribute) {
-                                    const role = element.getAttribute('role');
-                                    const ariaModal = element.getAttribute('aria-modal');
-                                    const className = element.className;
-                                    
-                                    if (role === 'dialog' || 
-                                        ariaModal === 'true' || 
-                                        (className && typeof className === 'string' && className.includes('feedback'))) {
-                                      shouldApply = true;
-                                    }
-                                  }
-                                }
-                              });
-                            }
-                          });
-                          if (shouldApply) {
-                            setTimeout(applySentryStyles, 100);
-                          }
-                        } catch (e) {
-                          // Silently handle mutation observer errors
-                        }
-                      });
-                      
-                      observer.observe(document.body, {
-                        childList: true,
-                        subtree: true
-                      });
-                    } catch (e) {
-                      // Silently handle observer setup errors
-                    }
-                  } else {
-                    // Fallback: retry setting up observer after a delay
-                    setTimeout(() => {
-                      if (document.body) {
-                        setupMonitoring();
-                      }
-                    }, 500);
-                  }
-                } catch (e) {
-                  // Silently handle setup errors
-                }
-              }
-              
-              // Initialize everything
-              initializeSentryStyles();
-            `,
-          }}
-        />
-      </head>
+      <head />
       <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

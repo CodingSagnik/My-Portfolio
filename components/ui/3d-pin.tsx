@@ -7,13 +7,11 @@ import { cn } from "@/utils/cn";
 export const PinContainer = ({
   children,
   title,
-  href,
   className,
   containerClassName,
 }: {
   children: React.ReactNode;
   title?: string;
-  href?: string;
   className?: string;
   containerClassName?: string;
 }) => {
@@ -29,16 +27,13 @@ export const PinContainer = ({
   };
 
   return (
-    <a
+    <div
       className={cn(
         "relative group/pin z-50  cursor-pointer",
         containerClassName
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      href={href || "/"}
-      target="_blank"
-      rel="noopener noreferrer"
     >
       <div
         style={{
@@ -56,17 +51,15 @@ export const PinContainer = ({
           <div className={cn(" relative z-50 ", className)}>{children}</div>
         </div>
       </div>
-      <PinPerspective title={title} href={href} />
-    </a>
+      <PinPerspective title={title} />
+    </div>
   );
 };
 
 export const PinPerspective = ({
   title,
-  href,
 }: {
   title?: string;
-  href?: string;
 }) => {
   return (
     <motion.div className="pointer-events-none  w-full h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
