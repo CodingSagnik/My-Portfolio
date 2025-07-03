@@ -1,8 +1,10 @@
 # 🌟 Modern Portfolio Website
 
 A stunning, responsive portfolio website built with Next.js 14, featuring dynamic animations, interactive 3D elements, and a sophisticated dark theme design. This portfolio showcases professional work, experience, and skills through an engaging user interface.
+### Live Link: https://sagnik-ray-portfolio.vercel.app/
+![Sagnik portfolio](https://github.com/user-attachments/assets/64508891-4457-417e-b8a3-bc05fbee61c4)
 
-![Portfolio Preview](public/profile.svg)
+
 
 ## ✨ Features
 
@@ -66,53 +68,6 @@ A stunning, responsive portfolio website built with Next.js 14, featuring dynami
 
 ### Monitoring & Analytics
 - **Vercel Analytics** - Website performance insights
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm, yarn, pnpm, or bun package manager
-- Git for version control
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/CodingSagnik/portfolio.git
-   cd portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   # or
-   bun install
-   ```
-
-3. **Set up environment variables** (if needed)
-   Create a `.env.local` file in the root directory for any future environment variables:
-   ```env
-   # Add your environment variables here
-   # NEXT_PUBLIC_API_URL=your-api-url
-   ```
-
-4. **Run the development server**
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
 
 ## 📁 Project Structure
 
@@ -196,30 +151,6 @@ portfolio/
 - Adjust animation durations and easing
 - Add new animations using CSS or Framer Motion
 
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-1. **Connect Repository**
-   - Visit [Vercel](https://vercel.com)
-   - Import your GitHub repository
-   - Configure project settings
-
-2. **Environment Variables**
-   - Add any required environment variables if needed
-
-3. **Deploy**
-   - Vercel automatically deploys on push to main branch
-   - Preview deployments for pull requests
-
-### Other Platforms
-
-The project can be deployed on any platform that supports Next.js:
-
-- **Netlify**: Configure build command and publish directory
-- **Railway**: Direct GitHub integration
-- **DigitalOcean App Platform**: Container-based deployment
-- **AWS Amplify**: Full-stack deployment with CI/CD
 
 ### Build Commands
 
@@ -260,17 +191,6 @@ npm run lint
 - **Next.js DevTools**: Performance and bundle analysis
 - **Browser DevTools**: Built-in debugging capabilities
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📝 License
 
@@ -287,7 +207,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **Sagnik Ray**
-- Portfolio: [Live Site](https://your-portfolio-url.com)
+- Portfolio: [Live Site](https://sagnik-ray-portfolio.vercel.app/)
 - Email: raysagnik@gmail.com
 - LinkedIn: [ray-sagnik](https://www.linkedin.com/in/ray-sagnik/)
 - GitHub: [CodingSagnik](https://github.com/CodingSagnik)
