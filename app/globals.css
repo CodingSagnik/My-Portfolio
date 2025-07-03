@@ -2,26 +2,361 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button {
+    @apply active:outline-none;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .heading {
+    @apply font-bold text-4xl md:text-5xl text-center;
   }
+
+  .black-gradient {
+    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+  }
+}
+
+/* Magic Button Border Fix */
+@layer components {
+  .magic-button-container {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    padding: 1px;
+    isolation: isolate;
+  }
+  
+  .magic-button-container::before {
+    content: '';
+    position: absolute;
+    inset: -1000%;
+    background: conic-gradient(from 90deg at 50% 50%, #E2CBFF 0%, #393BB2 50%, #E2CBFF 100%);
+    animation: spin 2s linear infinite;
+    z-index: -1;
+  }
+  
+  .magic-button-content {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(2 6 23);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(12px);
+  }
+  
+  /* Ensure animations work properly */
+  .animate-magic-spin {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  /* Force hardware acceleration for better performance */
+  button:has(.animate-magic-spin),
+  .magic-button-container {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Additional magic button fixes */
+  .animate-magic-spin {
+    animation: spin 2s linear infinite !important;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Ensure conic gradients work in all browsers */
+  @supports not (background: conic-gradient(from 0deg, red, blue)) {
+    .animate-magic-spin {
+      background: linear-gradient(45deg, #E2CBFF, #393BB2, #E2CBFF, #393BB2) !important;
+    }
+  }
+}
+
+/* SENTRY FEEDBACK WIDGET STYLING - CLEAN APPROACH */
+
+/* Input field styling with multiple border techniques */
+html body div[role="dialog"] input,
+html body div[aria-modal="true"] input,
+html body [class*="feedback" i] input,
+html body [id*="feedback" i] input,
+html body div[role="dialog"] textarea,
+html body div[aria-modal="true"] textarea,
+html body [class*="feedback" i] textarea,
+html body [id*="feedback" i] textarea,
+html body form input,
+html body form textarea {
+  background: rgba(6, 9, 31, 0.6) !important;
+  border: 3px solid #CBACF9 !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+  outline: none !important;
+  box-shadow: 
+    inset 0 0 0 3px #CBACF9,
+    0 0 0 3px #CBACF9,
+    0 2px 4px 0 rgba(203, 172, 249, 0.3) !important;
+  border-style: solid !important;
+  border-width: 3px !important;
+  border-color: #CBACF9 !important;
+  background-clip: padding-box !important;
+}
+
+/* Input focus states */
+html body div[role="dialog"] input:focus,
+html body div[aria-modal="true"] input:focus,
+html body [class*="feedback" i] input:focus,
+html body div[role="dialog"] textarea:focus,
+html body div[aria-modal="true"] textarea:focus,
+html body [class*="feedback" i] textarea:focus,
+html body form input:focus,
+html body form textarea:focus {
+  border: 3px solid #d6c0fc !important;
+  background: rgba(6, 9, 31, 0.8) !important;
+  box-shadow: 
+    inset 0 0 0 3px #d6c0fc,
+    0 0 0 6px rgba(203, 172, 249, 0.4),
+    0 4px 12px 0 rgba(203, 172, 249, 0.5) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Input hover states */
+html body div[role="dialog"] input:hover,
+html body div[aria-modal="true"] input:hover,
+html body [class*="feedback" i] input:hover,
+html body div[role="dialog"] textarea:hover,
+html body div[aria-modal="true"] textarea:hover,
+html body [class*="feedback" i] textarea:hover,
+html body form input:hover,
+html body form textarea:hover {
+  border-color: #d6c0fc !important;
+  box-shadow: 
+    inset 0 0 0 3px #d6c0fc,
+    0 0 0 3px #d6c0fc,
+    0 4px 8px 0 rgba(203, 172, 249, 0.3) !important;
+}
+
+/* ALL TEXT ELEMENTS */
+html body div[role="dialog"] *,
+html body div[aria-modal="true"] *,
+html body [class*="feedback" i] *,
+html body [id*="feedback" i] *,
+html body form * {
+  color: #CBACF9 !important;
+}
+
+/* Specific text element targeting */
+html body div[role="dialog"] label,
+html body div[aria-modal="true"] label,
+html body [class*="feedback" i] label,
+html body div[role="dialog"] span,
+html body div[aria-modal="true"] span,
+html body [class*="feedback" i] span,
+html body div[role="dialog"] p,
+html body div[aria-modal="true"] p,
+html body [class*="feedback" i] p,
+html body div[role="dialog"] div,
+html body div[aria-modal="true"] div,
+html body [class*="feedback" i] div,
+html body form label,
+html body form span,
+html body form p,
+html body form div {
+  color: #CBACF9 !important;
+  font-weight: 500 !important;
+}
+
+/* Button styling - Submit */
+html body div[role="dialog"] button[type="submit"],
+html body div[aria-modal="true"] button[type="submit"],
+html body [class*="feedback" i] button[type="submit"],
+html body form button[type="submit"] {
+  background: linear-gradient(135deg, #CBACF9 0%, #b794f6 50%, #a78bfa 100%) !important;
+  border: 2px solid transparent !important;
+  border-radius: 10px !important;
+  color: #000319 !important;
+  font-weight: 700 !important;
+  padding: 14px 24px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px 0 rgba(203, 172, 249, 0.3) !important;
+}
+
+html body div[role="dialog"] button[type="submit"]:hover,
+html body div[aria-modal="true"] button[type="submit"]:hover,
+html body [class*="feedback" i] button[type="submit"]:hover,
+html body form button[type="submit"]:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  background: linear-gradient(135deg, #d6c0fc 0%, #c7a8f8 50%, #b794f6 100%) !important;
+  box-shadow: 0 8px 24px 0 rgba(203, 172, 249, 0.5) !important;
+}
+
+/* Button styling - Cancel and other buttons */
+html body div[role="dialog"] button:not([type="submit"]),
+html body div[aria-modal="true"] button:not([type="submit"]),
+html body [class*="feedback" i] button:not([type="submit"]),
+html body form button:not([type="submit"]),
+html body div[role="dialog"] [role="button"],
+html body div[aria-modal="true"] [role="button"],
+html body [class*="feedback" i] [role="button"],
+html body div[role="dialog"] a,
+html body div[aria-modal="true"] a,
+html body [class*="feedback" i] a,
+html body form a {
+  background: transparent !important;
+  border: 2px solid #CBACF9 !important;
+  border-radius: 8px !important;
+  color: #CBACF9 !important;
+  font-weight: 600 !important;
+  padding: 12px 18px !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  box-shadow: 
+    inset 0 0 0 2px #CBACF9,
+    0 0 0 1px #CBACF9 !important;
+}
+
+html body div[role="dialog"] button:not([type="submit"]):hover,
+html body div[aria-modal="true"] button:not([type="submit"]):hover,
+html body [class*="feedback" i] button:not([type="submit"]):hover,
+html body form button:not([type="submit"]):hover,
+html body div[role="dialog"] [role="button"]:hover,
+html body div[aria-modal="true"] [role="button"]:hover,
+html body [class*="feedback" i] [role="button"]:hover,
+html body div[role="dialog"] a:hover,
+html body div[aria-modal="true"] a:hover,
+html body [class*="feedback" i] a:hover,
+html body form a:hover {
+  background: rgba(203, 172, 249, 0.15) !important;
+  border-color: #d6c0fc !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 
+    inset 0 0 0 2px #d6c0fc,
+    0 0 0 2px #d6c0fc,
+    0 4px 12px 0 rgba(203, 172, 249, 0.2) !important;
+}
+
+/* Form container styling */
+html body div[role="dialog"],
+html body div[aria-modal="true"],
+html body [class*="feedback" i][class*="form" i],
+html body [class*="feedback" i][class*="modal" i],
+html body [class*="feedback" i][class*="dialog" i] {
+  background: rgba(22, 26, 49, 0.95) !important;
+  border: 2px solid rgba(203, 172, 249, 0.4) !important;
+  border-radius: 16px !important;
+  /* Fallback for browsers that don't support backdrop-filter */
+  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(24px) !important;
+  box-shadow: 
+    0 32px 64px -12px rgba(0, 0, 0, 0.4),
+    0 8px 24px 0 rgba(203, 172, 249, 0.2) !important;
+}
+
+/* Report Bug Button */
+html body button[aria-label*="report" i],
+html body button[aria-label*="feedback" i],
+html body button[aria-label*="bug" i],
+html body [class*="feedback" i] button:not([type]):not([role]) {
+  background: rgba(22, 26, 49, 0.9) !important;
+  border: 2px solid #CBACF9 !important;
+  border-radius: 12px !important;
+  color: #CBACF9 !important;
+  font-weight: 600 !important;
+  padding: 12px 20px !important;
+  transition: all 0.4s ease !important;
+  /* Fallback for browsers that don't support backdrop-filter */
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 14px 0 rgba(203, 172, 249, 0.2) !important;
+}
+
+html body button[aria-label*="report" i]:hover,
+html body button[aria-label*="feedback" i]:hover,
+html body button[aria-label*="bug" i]:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  background: rgba(203, 172, 249, 0.1) !important;
+  box-shadow: 0 12px 32px 0 rgba(203, 172, 249, 0.4) !important;
 }

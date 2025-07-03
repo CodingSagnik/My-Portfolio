@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="305.27664"
+   style="line-height:1"
+   viewBox="0 0 350 305.27664"
+   width="350"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="gradio.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.3460809"
+     inkscape:cx="17.829538"
+     inkscape:cy="47.916883"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <title
+     id="title1">Gradio</title>
+  <g
+     id="g9"
+     transform="matrix(14.581853,0,0,14.581853,0.01139219,-22.3126)">
+    <g
+       id="g8">
+      <path
+         clip-rule="evenodd"
+         d="m 11.238,7.603 a 1.532,1.532 0 0 1 1.524,0 l 10.468,6 a 1.532,1.532 0 0 1 0,2.66 l -10.468,6 c -0.472,0.27 -1.052,0.27 -1.524,0 l -10.468,-6 a 1.533,1.533 0 0 1 0,-2.66 z M 4.614,14.933 12,19.166 19.386,14.933 12,10.699 Z"
+         fill="url(#lobe-icons-gradio-fill-0)"
+         fill-rule="evenodd"
+         id="path1"
+         style="fill:url(#lobe-icons-gradio-fill-0)" />
+      <path
+         clip-rule="evenodd"
+         d="m 11.238,1.733 a 1.533,1.533 0 0 1 1.524,0 l 10.468,6 a 1.532,1.532 0 0 1 0,2.659 l -10.468,6 c -0.472,0.27 -1.052,0.27 -1.524,0 l -10.468,-6 a 1.532,1.532 0 0 1 0,-2.659 z M 4.614,9.063 12,13.296 19.386,9.063 12,4.829 Z"
+         fill="url(#lobe-icons-gradio-fill-1)"
+         fill-rule="evenodd"
+         id="path2"
+         style="fill:url(#lobe-icons-gradio-fill-1)" />
+    </g>
+    <path
+       clip-rule="evenodd"
+       d="M 12.784,10.265 2.291,16.239 0.774,13.575 11.268,7.601 Z"
+       fill="url(#lobe-icons-gradio-fill-2)"
+       fill-rule="evenodd"
+       id="path3"
+       style="fill:url(#lobe-icons-gradio-fill-2)" />
+  </g>
+  <defs
+     id="defs8">
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       id="lobe-icons-gradio-fill-0"
+       x1="0.182"
+       x2="19.377001"
+       y1="14.907"
+       y2="14.907">
+      <stop
+         stop-color="#F9D100"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#F97700"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       id="lobe-icons-gradio-fill-1"
+       x1="23.74"
+       x2="4.5190001"
+       y1="9.0369997"
+       y2="9.0369997">
+      <stop
+         stop-color="#F9D100"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#F97700"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       id="lobe-icons-gradio-fill-2"
+       x1="0.182"
+       x2="19.35"
+       y1="14.907"
+       y2="14.793">
+      <stop
+         stop-color="#F9D100"
+         id="stop7" />
+      <stop
+         offset="1"
+         stop-color="#F97700"
+         id="stop8" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata9">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Gradio</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
